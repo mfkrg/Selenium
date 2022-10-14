@@ -1,8 +1,21 @@
 from selenium import webdriver
 import time
+import random
+from fake_useragent import UserAgent
 
-url = "http://graecolatini.bsu.by/htm-different/latin-translit.htm"
-driver = webdriver.Chrome(executable_path="C:\\Users\\Zahar\\PycharmProjects\\Selenium\\chromedriver\\chromedriver.exe")
+options = webdriver.ChromeOptions()
+user_agents_list = [
+    "hello world",
+    "agent test 2",
+    "super"
+]
+
+useragent = UserAgent()
+
+options.add_argument(f"user-agent={useragent.opera}")
+
+url = "https://www.whatismybrowser.com/detect/what-is-my-user-agent/"
+driver = webdriver.Chrome(r"C:\Users\Zahar\PycharmProjects\Selenium\chromedriver\chromedriver.exe", options=options, )
 
 try:
     driver.get(url=url)
