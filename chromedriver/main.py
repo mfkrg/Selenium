@@ -1,24 +1,15 @@
 from selenium import webdriver
 import time
-import random
 from fake_useragent import UserAgent
 
-options = webdriver.ChromeOptions()
-user_agents_list = [
-    "hello world",
-    "agent test 2",
-    "super"
-]
-
 useragent = UserAgent()
-
+options = webdriver.ChromeOptions()
 options.add_argument(f"user-agent={useragent.opera}")
-
-url = "https://www.whatismybrowser.com/detect/what-is-my-user-agent/"
 driver = webdriver.Chrome(r"C:\Users\Zahar\PycharmProjects\Selenium\chromedriver\chromedriver.exe", options=options, )
+url = "https://www.whatismybrowser.com/detect/what-is-my-user-agent/"
 
 try:
-    driver.get(url=url)
+    driver.get("https://2ip.ru")
     time.sleep(5)
 except Exception as ex:
     print(ex)
